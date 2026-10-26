@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zona de Ataque | Reserva de canchas de vóley en Iquitos</title>
+    <meta name="description" content="Reserva tu cancha de voleibol en Zona de Ataque, Calle Piura 837, Punchana, Iquitos. Elige día, hora y cancha en línea.">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏐</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- NAVEGACIÓN -->
+    <header class="nav">
+        <div class="contenedor nav-inner">
+            <a href="#inicio" class="logo">🏐 ZONA DE <span>ATAQUE</span></a>
+            <button class="menu-btn" id="menuBtn" aria-label="Abrir menú">☰</button>
+            <nav class="menu" id="menu">
+                <a href="#canchas">Canchas</a>
+                <a href="#precios">Precios</a>
+                <a href="#reservar">Reservar</a>
+                <a href="#mis-reservas">Mis reservas</a>
+                <a href="#ubicacion">Ubicación</a>
+                <a href="#reservar" class="btn btn-sm">Reserva ya</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- INICIO -->
+    <section class="hero" id="inicio">
+        <div class="contenedor hero-inner">
+            <p class="etiqueta">Iquitos · Punchana</p>
+            <h1>ZONA DE <span>ATAQUE</span></h1>
+            <p class="hero-texto">Las mejores canchas de voleibol de Iquitos. Reserva tu horario en línea en menos de un minuto y ven a jugar con tu equipo.</p>
+            <div class="hero-botones">
+                <a href="#reservar" class="btn">Reservar cancha</a>
+                <a href="#ubicacion" class="btn btn-borde">Cómo llegar</a>
+            </div>
+            <ul class="hero-datos">
+                <li><strong id="datoCanchas">2</strong><span>Canchas</span></li>
+                <li><strong id="datoHorario">8–22 h</strong><span>Todos los días</span></li>
+                <li><strong>📍</strong><span>Calle Piura 837</span></li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- CANCHAS -->
+    <section class="seccion" id="canchas">
+        <div class="contenedor">
+            <h2 class="titulo">Nuestras <span>canchas</span></h2>
+            <p class="subtitulo">Espacios preparados para entrenar, jugar con amigos u organizar campeonatos.</p>
+            <div class="tarjetas" id="listaCanchas"></div>
+            <div class="servicios">
+                <div>💡<span>Iluminación nocturna</span></div>
+                <div>🚿<span>Vestidores y baños</span></div>
+                <div>🥤<span>Venta de bebidas</span></div>
+                <div>🏐<span>Préstamo de balones</span></div>
+                <div>🏆<span>Campeonatos y eventos</span></div>
+                <div>🅿️<span>Zona para motos</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRECIOS -->
+    <section class="seccion seccion-oscura" id="precios">
+        <div class="contenedor">
+            <h2 class="titulo">Precios por <span>hora</span></h2>
+            <div class="precios" id="listaPrecios"></div>
+            <p class="nota">* El pago se realiza en el local o por Yape/Plin al confirmar la reserva.</p>
+        </div>
+    </section>
+
+    <!-- RESERVAR -->
+    <section class="seccion" id="reservar">
+        <div class="contenedor">
+            <h2 class="titulo">Reserva tu <span>cancha</span></h2>
+            <p class="subtitulo">1. Elige el día · 2. Elige la cancha · 3. Marca tus horas · 4. Completa tus datos</p>
+
+            <div class="reserva">
+                <div class="panel">
+                    <h3>1. Elige el día</h3>
+                    <div class="dias" id="dias"></div>
+
+                    <h3>2. Elige la cancha</h3>
+                    <div class="selector-cancha" id="selectorCancha"></div>
+
+                    <h3>3. Marca tus horas</h3>
+                    <div class="leyenda">
+                        <span><i class="cuadro libre"></i>Libre</span>
+                        <span><i class="cuadro elegido"></i>Elegido</span>
+                        <span><i class="cuadro ocupado"></i>Ocupado</span>
+                    </div>
+                    <div class="horas" id="horas"></div>
+                </div>
+
+                <form class="panel formulario" id="formReserva" novalidate>
+                    <h3>4. Tus datos</h3>
+                    <label>Nombre completo
+                        <input type="text" id="nombre" required minlength="3" placeholder="Ej. María López">
+                    </label>
+                    <label>Celular
+                        <input type="tel" id="celular" required pattern="9[0-9]{8}" placeholder="9XXXXXXXX">
+                    </label>
+                    <label>N.º de jugadores (aprox.)
+                        <input type="number" id="jugadores" min="2" max="30" value="12">
+                    </label>
+                    <label>Comentario (opcional)
+                        <textarea id="comentario" rows="2" placeholder="Ej. Necesitamos balones"></textarea>
+                    </label>
+
+                    <div class="resumen" id="resumen">
+                        <p>Aún no has elegido horas.</p>
+                    </div>
+
+                    <p class="error" id="error"></p>
+                    <button type="submit" class="btn btn-bloque">Confirmar reserva por WhatsApp</button>
+                    <p class="nota">Al confirmar se abrirá WhatsApp con tu reserva para que el local la valide.</p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- MIS RESERVAS -->
+    <section class="seccion seccion-gris" id="mis-reservas">
+        <div class="contenedor">
+            <h2 class="titulo">Mis <span>reservas</span></h2>
+            <p class="subtitulo">Reservas hechas desde este dispositivo.</p>
+            <div id="misReservas" class="mis-reservas"></div>
+        </div>
+    </section>
+
+    <!-- UBICACIÓN -->
+    <section class="seccion" id="ubicacion">
+        <div class="contenedor ubicacion">
+            <div>
+                <h2 class="titulo">¿Dónde <span>estamos</span>?</h2>
+                <p class="direccion">📍 Calle Piura 837<br>Distrito de Punchana<br>Iquitos – Loreto, Perú</p>
+                <p>🕗 Lunes a domingo<br><span id="textoHorario">8:00 a. m. – 10:00 p. m.</span></p>
+                <p>📱 <a id="enlaceWhatsapp" href="#" target="_blank" rel="noopener">Escríbenos por WhatsApp</a></p>
+                <a class="btn" target="_blank" rel="noopener"
+                   href="https://www.google.com/maps/search/?api=1&query=Calle+Piura+837,+Punchana,+Iquitos,+Peru">Abrir en Google Maps</a>
+            </div>
+            <iframe class="mapa" title="Mapa de Zona de Ataque" loading="lazy"
+                    src="https://maps.google.com/maps?q=Calle%20Piura%20837%2C%20Punchana%2C%20Iquitos%2C%20Peru&z=16&output=embed"></iframe>
+        </div>
+    </section>
+
+    <footer class="pie">
+        <div class="contenedor">
+            <p class="logo">🏐 ZONA DE <span>ATAQUE</span></p>
+            <p>Calle Piura 837, Punchana – Iquitos</p>
+            <p class="copy">© <span id="anio"></span> Zona de Ataque. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <div class="aviso" id="aviso"></div>
+
+    <script src="app.js"></script>
+</body>
+</html>
